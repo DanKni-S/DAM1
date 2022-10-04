@@ -1,12 +1,19 @@
 package Actividades;
 
-public class Ejercicio5 {
+import java.util.Scanner;
+
+public class Ejercicio1x5 {
 
 	public static void main(String[] args) {
 		//
 		double numA, numB;
-		numA = 12.345;
-		numB = 98.765;
+		System.out.println("Introduce un numero: ");
+		Scanner numero1 = new Scanner(System.in);
+		numA = numero1.nextDouble();
+		System.out.println("Introduce un numero: ");
+		Scanner numero2 = new Scanner(System.in);
+		numB = numero2.nextDouble();
+		
 		System.out.println("Números con dos dígitos decimales");
 		System.out.printf("A = %.2f\n", numA);
 		System.out.printf("B = %.2f\n", numB);

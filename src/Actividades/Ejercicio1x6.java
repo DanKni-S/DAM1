@@ -2,7 +2,7 @@ package Actividades;
 
 import java.util.Scanner;
 
-public class Ejercicio6 {
+public class Ejercicio1x6 {
 
 	public static void main(String[] args) {
 		//
