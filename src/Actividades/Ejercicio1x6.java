@@ -7,6 +7,7 @@ public class Ejercicio1x6 {
 	public static void main(String[] args) {
 		//
 		double nchicos, nchicas;
+		boolean tiempoValido;
 		System.out.println("Introduce numero de chicos");
 		Scanner chicos = new Scanner(System.in);
 		nchicos = chicos.nextInt();
