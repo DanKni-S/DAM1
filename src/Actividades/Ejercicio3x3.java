@@ -34,19 +34,18 @@ public class Ejercicio3x3 {
 
 		if (tiempoValido) {
 			System.out.printf("%dh %dm %ds + 1s = ", nHoras, nMinutos, nSegundos);
-		}
-		if (nSegundos == 60) {
-			nSegundos = 0;
-			nSegundos = nSegundos + 1;
-		}
-		if (nMinutos == 60) {
-			nMinutos = 0;
-			nMinutos = nMinutos + 1;
-		}
-		if (nHoras == 24) {
-			nHoras = 0;
-			nHoras = nHoras + 1;
-			System.out.println("1 día");
+			if (nSegundos == 60) {
+				nSegundos = 0;
+				nSegundos = nSegundos + 1;
+			}
+			if (nMinutos == 60) {
+				nMinutos = 0;
+				nMinutos = nMinutos + 1;
+			}
+			if (nHoras == 24) {
+				nHoras = 0;
+				System.out.println("1 día");
+			}
 		}
 		System.out.printf("%dh %dm %ds\n", nHoras, nMinutos, nSegundos);
 
