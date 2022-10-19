@@ -20,7 +20,7 @@ public class Ejercicio4x14 {
 				acierto = true;
 			} else if (contador == 4) {
 				System.out.println("Has fallado el número secreto");
-//				System.out.println("Has agotado los 5 intentos");
+				System.out.println("Has agotado los 5 intentos");
 			} else if (numA > numB) {
 				System.out.println("Has fallado el número secreto");
 				System.out.println("El número " + numB + " es menor que el número secreto");
@@ -28,9 +28,6 @@ public class Ejercicio4x14 {
 				System.out.println("Has fallado el número secreto");
 				System.out.println("El número " + numB + " es mayor que el número secreto");
 			}
-		}
-		if (contador == TOTAL && acierto == false) {
-			System.out.println("Has agotado los 5 intentos");
 		}
 	}
 
