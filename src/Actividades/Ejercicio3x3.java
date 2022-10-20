@@ -8,15 +8,13 @@ public class Ejercicio3x3 {
 		//
 		int nHoras, nMinutos, nSegundos;
 		boolean tiempoValido;
-		Scanner teclado1 = new Scanner(System.in);
-		Scanner teclado2 = new Scanner(System.in);
-		Scanner teclado3 = new Scanner(System.in);
+		Scanner teclado = new Scanner(System.in);
 		System.out.println("¿Horas?");
-		nHoras = teclado1.nextInt();
+		nHoras = teclado.nextInt();
 		System.out.println("¿Minutos?");
-		nMinutos = teclado2.nextInt();
+		nMinutos = teclado.nextInt();
 		System.out.println("¿Segundos?");
-		nSegundos = teclado3.nextInt();
+		nSegundos = teclado.nextInt();
 
 		tiempoValido = true;
 		if (nHoras < 0 || nHoras > 0) {
