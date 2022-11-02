@@ -46,15 +46,19 @@ public class Ejercicio1x3 {
 			System.out.println("El número final debe ser positivo. ");
 			error = true;
 		}
-		if (numIni <= numFinal) {
+		if (numIni > numFinal) {
 			System.out.println("El número inicial debe ser menor o igual que " + " el número final. ");
 			error = true;
 		}
 		if (!error) {
 			contadorCapicuas = 0;
 			for (numA = numIni; numA <= numFinal; numA++) {
-				
+				if (esCapicua(numA)) {
+					System.out.println(numA + " ");
+					contadorCapicuas++;
+				}
 			}
+			System.out.println("\nNúmero de Capicúa: " + contadorCapicuas);
 		}
 
 	}
