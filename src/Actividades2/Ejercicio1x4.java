@@ -4,9 +4,9 @@ public class Ejercicio1x4 {
 
 	public static void main(String[] args) {
 		//
-		for (int a = 1; a <= 9; a++) {
-			for (int b = 2; b <= 6; b++) {
-				System.out.printf(" %d ^ %d = %6d", a, b, elevar(a, b));
+		for (int numA = 1; numA <= 9; numA++) {
+			for (int numB = 2; numB <= 6; numB++) {
+				System.out.printf(" %d ^ %d = %6d", numA, numB, elevar(numA, numB));
 				System.out.print(", ");
 			}
 			System.out.println();
@@ -15,7 +15,7 @@ public class Ejercicio1x4 {
 
 	public static int elevar(int base, int exponente) {
 		int operacion = 1;
-		for (int a = 0; a < exponente; a++) {
+		for (int numA = 0; numA < exponente; numA++) {
 			operacion = operacion * base;
 		}
 		return operacion;
