@@ -17,5 +17,5 @@ public class Ejercicio3x10 {
 		if (numA == numB || numB == numC || numC == numA) {
 			System.out.println();
 		}
-}
+	}
 }
