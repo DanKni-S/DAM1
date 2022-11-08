@@ -6,9 +6,8 @@ public class Ejercicio2x2 {
 	
 	public static void dibujarRectangulo(int numA, int numB) {
 		int ancho, alto;
-		final int LIMITE = 10;
-		for (ancho = 0 ; ancho <= LIMITE ; ancho++) {
-			for (alto = 0 ; alto <= LIMITE ; alto++) {
+		for (alto = 0 ; alto <= numA ; alto++) {
+			for (ancho = 0 ; ancho <= numB ; ancho++) {
 				System.out.print('*');
 			}
 			System.out.println("");
