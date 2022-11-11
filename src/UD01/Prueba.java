@@ -11,7 +11,7 @@ public class Prueba {
 
 		System.out.println("Introduzca el dinero que tiene disponible ");
 		dinero = teclado.nextInt();
-		while (articulo >= 0) {
+		while (articulo != -1) {
 			System.out.println("Introduzca el precio del articulo ");
 			articulo = teclado.nextInt();
 			if (articulo != -1) {
@@ -24,7 +24,6 @@ public class Prueba {
 			}
 		}
 		System.out.println("Total: " + suma);
-
 	}
 
 }
