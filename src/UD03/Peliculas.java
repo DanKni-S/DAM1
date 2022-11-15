@@ -8,19 +8,29 @@ public class Peliculas {
 	private boolean dobladaCastellano;
 	private double puntuacion;
 	
-	public String getTitulo() {
+	// Contructor
+//	public pelicula (String nombre, int duracion, boolean dobladaCastellano, double puntuacion) {
+//		this.nombre = nombre;
+//		this.duracion = duracion;
+//		this.dobladaCastellano = dobladaCastellano;
+//		this.puntuacion = puntuacion;
+//	}
+	
+	// método de acceso a atributo (getters) (para obtenerlos)
+	public String getNombre() {
 		return nombre;
 	}
-	public void setTitulo(String titulo) {
+	// método de acceso a atributo (setters) (para modificarlos)
+	public void setNombre(String titulo) {
 		this.nombre = titulo;
 	}
-	public int getMinutosDuracion() {
+	public int getDuracion() {
 		return duracion;
 	}
-	public void setMinutoDuracion(int duracion) {
+	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
-	public boolean getdobladoCastellano() {
+	public boolean getdobladaCastellano() {
 		return dobladaCastellano;
 	}
 	public void setdobladaCastellano(boolean dobladaCastellano) {
