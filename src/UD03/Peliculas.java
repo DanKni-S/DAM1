@@ -50,4 +50,10 @@ public class Peliculas {
 	public void setPuntuacion(double puntuacion) {
 		this.puntuacion = puntuacion;
 	}
+	
+	// Devuelve una cadena de caracteres con el estado del objeto
+	public String obtenerEstado() {
+		return
+			"Peliculas [Nombre = " + nombre +", Duración = " + duracion + ", DobladaCastellano = " + dobladaCastellano + ", Puntuación = " + puntuacion + "]";
+	}
 }

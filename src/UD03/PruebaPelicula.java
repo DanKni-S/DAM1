@@ -3,8 +3,21 @@ package UD03;
 import entrada.Teclado;
 
 public class PruebaPelicula {
+	
+	// Lee una pelicula por teclado
+			public static Peliculas leerPelicula() {
+				String nombre = Teclado.leerCadena("Introduce Nombre: ");
+				int duracion = Teclado.leerEntero("Introduce la duración: ");
+				boolean dobladaCastellano = Teclado.leerBooleano("Esta doblada al Castellano? ");
+				double puntuacion = Teclado.leerReal("Introduce la puntuacicón: ");
+				Peliculas pelicula2 = new Peliculas(nombre, duracion, dobladaCastellano, puntuacion);
+				return pelicula2;
+				
+			}
 
 	public static void main(String[] args) {
+		
+		
 
 //		Peliculas pelicula1 = new Peliculas();
 //		System.out.println(pelicula1.getNombre());
@@ -22,16 +35,20 @@ public class PruebaPelicula {
 //		System.out.println(pelicula1.getdobladaCastellano());
 //		System.out.println(pelicula1.getPuntuacion());
 
-		String nombre = Teclado.leerCadena("Introduce Nombre: ");
-		int duracion = Teclado.leerEntero("Introduce la duración: ");
-		boolean dobladaCastellano = Teclado.leerBooleano("Esta doblada al Castellano? ");
-		double puntuacion = Teclado.leerReal("Introduce la puntuacicón: ");
-
-		Peliculas pelicula2 = new Peliculas(nombre, duracion, dobladaCastellano, puntuacion);
-		System.out.println(pelicula2.getNombre());
-		System.out.println(pelicula2.getDuracion());
-		System.out.println(pelicula2.getdobladaCastellano());
-		System.out.println(pelicula2.getPuntuacion());
+//		String nombre = Teclado.leerCadena("Introduce Nombre: ");
+//		int duracion = Teclado.leerEntero("Introduce la duración: ");
+//		boolean dobladaCastellano = Teclado.leerBooleano("Esta doblada al Castellano? ");
+//		double puntuacion = Teclado.leerReal("Introduce la puntuacicón: ");
+//
+//		Peliculas pelicula2 = new Peliculas(nombre, duracion, dobladaCastellano, puntuacion);
+		
+//		System.out.println(pelicula2.getNombre());
+//		System.out.println(pelicula2.getDuracion());
+//		System.out.println(pelicula2.getdobladaCastellano());
+//		System.out.println(pelicula2.getPuntuacion());
+		
+		Peliculas pelicula = leerPelicula();
+		System.out.println(pelicula.obtenerEstado());
 
 	}
 
