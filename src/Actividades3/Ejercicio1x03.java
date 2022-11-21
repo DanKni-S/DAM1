@@ -28,7 +28,7 @@ public class Ejercicio1x03 {
 		Libro libro = null;
 		do {
 			escribirMenu();
-			opcion = Teclado.leerEntero("Introduce una opción (0 - 8)");
+			opcion = Teclado.leerEntero("Introduce una opción (0 - 8): ");
 			switch (opcion) {
 			// Salir del programa
 			case 0:
