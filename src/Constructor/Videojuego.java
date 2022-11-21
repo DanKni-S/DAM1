@@ -6,7 +6,7 @@ public class Videojuego {
 	private String nombre;
 	private String desarrollador;
 	private int year;
-	private int maxJugadores = 1;
+	private int maxJugadores;
 
 	// Constructor 1
 	public Videojuego(String nombre, String desarrollador, int year, int maxJugadores) {
