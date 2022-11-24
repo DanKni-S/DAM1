@@ -2,6 +2,7 @@ package Constructor;
 
 public class Cuenta {
 	
+	// Atributos 
 	private int numero;
 	String cliente;
 	private double saldo;
