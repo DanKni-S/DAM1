@@ -79,7 +79,7 @@ public class Ejercicio2x03 {
 					System.out.println(tiempo.obtenerEstado());
 				} else {
 					System.out.println("Error al sumar el tiempo más otro tiempo ");
-					System.out.println("La suma debe ser igual o inferior a 23:60:60 ");
+					System.out.println("La suma debe ser igual o inferior a 23h:59m:59s ");
 				}
 				break;
 			case 4:
@@ -94,7 +94,7 @@ public class Ejercicio2x03 {
 					System.out.println(tiempo.obtenerEstado());
 				} else {
 					System.out.println("Error al restar el tiempo más otro tiempo ");
-					System.out.println("La resta debe ser igual o superior a 00:00:00 ");
+					System.out.println("La resta debe ser igual o superior a 00h:00m:00s ");
 				}
 				break;
 			default:
