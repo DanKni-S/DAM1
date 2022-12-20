@@ -60,6 +60,13 @@ public class EjemplosVectores {
 		for (int pos = notas.length - 1 ; pos >= 0 ; pos--) {
 			System.out.println(notas[pos] + "");
 		}
+		// calcular la media del vector
+		int suma = 0;
+		for(int pos = 0 ; pos < notas.length ;pos++) {
+			suma += notas[pos];
+		}
+		double media = suma / notas.length;
+		System.out.println("Media: " + media);
 	}
 
 }
