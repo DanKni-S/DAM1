@@ -17,6 +17,16 @@ public class EjemplosVectores {
 		}
 		System.out.println(" ]");
 	}
+	// Rellena un vector de enteros con numeros aleatorios
+	// entre un minimo y maximo
+	public static void generaVector(int capacidad, int minimo, int maximo) {
+		Random aleatorio = new Random();
+		int[] v = new int [capacidad];
+		for (int pos = 0 ; pos < v.length ; pos++) {
+			v[pos] = aleatorio.nextInt(maximo - minimo + 1) + minimo;
+		}
+		return v;
+	}
 
 	public static void main(String[] args) {
 		
@@ -67,6 +77,9 @@ public class EjemplosVectores {
 		}
 		double media = suma / notas.length;
 		System.out.println("Media: " + media);
+		
+		int[] numeros = generaVector(20, -10, 10);
+		escribirVector(notas);
 	}
 
 }
