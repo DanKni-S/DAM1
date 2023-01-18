@@ -58,4 +58,30 @@ public class Coleccion {
 			return false;
 		}
 	}
+	// consultar album, por posicion, de la colección
+	// Devuelve null si la posicion no es valida o si el vector esta vacio
+	public Album consultar(int posicion) {
+		if(posicion < contadorAlbum && posicion >= 0) {
+			return vectorAlbum[posicion];
+		}
+		else {
+			return null;
+		}
+	}
+	// Consultar album, por posicion, de la colección
+	// Se supone que el nombre no esta repetido en la colección
+	// Devolvera null cuando no hay ningun album con el nombre buscado
+	public Album consultarNombre(String nombre) {
+		boolean encontrado = false;
+		Album albumEncontrado = null;
+		Album album;
+		for(int posicion = 0 ; posicion < contadorAlbum && !encontrado ; posicion++) {
+			album = vectorAlbum[posicion];
+			if(nombre.equals(album.getNombre())) {
+				encontrado = true;
+				albumEncontrado = album;
+			}
+		}
+		return albumEncontrado;
+	}
 }

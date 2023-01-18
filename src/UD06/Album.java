@@ -19,4 +19,8 @@ public class Album {
 		public String toString() {
 			return "Album [Nombre = " + nombre + ", Artista = " + artista + ", Año Publicación = " + yearPublicacion + ", Genero = " + genero + "] ";
 		}
+		// Devuelve en nombre del album, cuando este esta en privado
+		public String getNombre() {
+			return nombre;
+		}
 }
