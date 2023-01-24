@@ -5,7 +5,7 @@ import UD06.Album;
 public class Alumno {
 
 	private String nombre;
-	private String numeroExpediente;
+	private String numeroExpediente; // único ("Clave Primaria" cada alumno tiene su numero de expediente)
 
 	private Calificacion[] calificaciones;
 	private int indice;
@@ -15,6 +15,19 @@ public class Alumno {
 		this.numeroExpediente = numeroExpediente;
 		this.calificaciones = new Calificacion[7];
 		this.indice = 0;
+	}
+	@Override
+	public String toString() {
+		String cadena = "Alumno [nombre = " + nombre + ", Numero Expediente = " + numeroExpediente + "]: ";
+		if (indice == 0) {
+			cadena = cadena + "El alumno no tiene calificaciones.";
+		} else {
+			for (int posicion = 0; posicion < indice; posicion++) {
+				Calificacion calif = calificaciones[posicion];
+				cadena = cadena + "(" + posicion + ")" + calif.toString() + "\n";
+			}
+		}
+		return cadena;
 	}
 
 	public boolean insertar(Calificacion calif) {
@@ -43,7 +56,7 @@ public class Alumno {
 		}
 	}
 
-	public Calificacion consultarCalificacion(String modulo) {
+	public Calificacion consultarModulo(String modulo) {
 		Calificacion calif = null;
 		boolean encontrada = false;
 		for (int pos = 1; pos < indice && !encontrada; pos++) {
@@ -57,7 +70,7 @@ public class Alumno {
 	}
 
 	public boolean actualizar(String modulo, double nuevaNota) {
-		Calificacion calif = consultarCalificacion(modulo);
+		Calificacion calif = consultarModulo(modulo);
 		if (calif != null) {
 			calif.setNota(nuevaNota);
 			return true;
@@ -101,7 +114,7 @@ public class Alumno {
 		} else {
 			System.out.println("No hay mejor calificación");
 		}
-		Calificacion calif = alumno.consultarCalificacion("7");
+		Calificacion calif = alumno.consultarModulo("7");
 		if (calif != null) {
 			System.out.println(mejorCalif.toString());
 		} else {
@@ -109,7 +122,7 @@ public class Alumno {
 		}
 		if (alumno.actualizar("P", 8.5)) {
 			System.out.println("Actualizada");
-			calif = alumno.consultarCalificacion("P");
+			calif = alumno.consultarModulo("P");
 		} else {
 			System.out.println("No actualizado");
 		}

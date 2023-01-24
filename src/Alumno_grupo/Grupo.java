@@ -13,6 +13,19 @@ public class Grupo {
 		this.alumnos = new Alumno[30];
 		this.indice = 0;
 	}
+	@Override
+	public String toString() {
+		String cadena = "Grupo [nombre = " + nombre + "]: ";
+		if (indice == 0) {
+			cadena = cadena + "El grupo no tiene alumnos.";
+		} else {
+			for (int posicion = 0; posicion < indice; posicion++) {
+				Alumno alumno = alumnos[posicion];
+				cadena = cadena + "(" + posicion + ")" + alumno.toString() + "\n";
+			}
+		}
+		return cadena;
+	}
 	public boolean insertar(Alumno alumno) {
 		if (indice < alumnos.length) {
 			alumnos[indice] = alumno;
@@ -22,22 +35,17 @@ public class Grupo {
 			return false;
 		}
 	}
-	public Calificacion[] consultarCalificacionesAlu(String numeroExpediente) {
-		if(indice == 0) {
-			return null;
-		}
-		else {
-			Calificacion[] calificaciones = null;
-			boolean encontrado = false;
-			for(int pos = 0 ; pos < indice ; pos++) {
-				Alumno alumno = alumnos[pos];
-				if(alumno.getNumeroExpediente().equals(numeroExpediente)) {
-					calificaciones = alumno.getCalificaciones();
-					encontrado = true;
-				}
+	public Alumno consultarAlumno(String numeroExpediente) {
+		Alumno alumnoEncontrado = null;
+		boolean encontrado = false;
+		for(int pos = 0 ; pos < indice && !encontrado ; pos++) {
+			Alumno alumno = alumnos[pos];
+			if(alumno.getNumeroExpediente().equals(numeroExpediente)) {
+				alumnoEncontrado = alumno;
+				encontrado = true;
 			}
-			return calificaciones;
 		}
+		return alumnoEncontrado;
 	}
 	public static void main(String[] args) {
 		Grupo grupo = new Grupo("DAM1B");
@@ -61,12 +69,12 @@ public class Grupo {
 		alumno2.insertar(new Calificacion("I", 9));
 		grupo.insertar(alumno2);
 		
-		Calificacion[] calificaciones = grupo.consultarCalificacionesAlu("1");
-		if(calificaciones == null) {
-			System.out.println("No hay");
+		Alumno alumnoBuscar = grupo.consultarAlumno("001");
+		if(alumnoBuscar == null) {
+			System.out.println("No encontrado");
 		}
 		else {
-			
+			System.out.println(alumnoBuscar.toString());
 		}
 	}
 	
