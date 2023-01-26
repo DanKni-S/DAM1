@@ -12,6 +12,12 @@ public class Empleado extends Persona {
 		this.tieneCargo = tieneCargo;
 		this.salario = salario;
 	}
+	
+	@Override
+	public String obtenerEstado() {
+		return super.obtenerEstado() + ", Profesion = " + profesion + ", Tiene Cargo = " + tieneCargo + ", Salario = " + String.format("%.2f", salario);
+	}
+	
 	@Override
 	public String toString() {
 		return "Empleado [" + super.obtenerEstado() + ", Profesion = " + profesion + ", Tiene Cargo = " + tieneCargo + ", Salario = " + String.format("%.2f", salario) + "]";

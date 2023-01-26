@@ -12,6 +12,12 @@ public class Estudiante extends Persona {
 		this.numeroExpediente = numeroExpediente;
 		this.estudios = estudios;
 	}
+	
+	@Override
+	public String obtenerEstado() {
+		return super.obtenerEstado() + ", Numero Expediente" + numeroExpediente + ", Estudios " + estudios;
+	}
+	
 	@Override
 	public String toString() {
 		return "Estudiante [" + super.obtenerEstado() + ", Numero Expediente = " + numeroExpediente + ", Estudios = " + estudios + "]";
