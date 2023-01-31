@@ -6,15 +6,40 @@ public class Oficinista extends Empleado {
 	private String titulo;
 	private String turno;
 	
-	public Oficinista(String nif, String nombre, String fechaNacimiento, String direccion, int telefono, String email) {
+	public Oficinista(String nif, String nombre, String fechaNacimiento, String direccion, String telefono, String email) {
 		super(nif, nombre, fechaNacimiento, direccion, telefono, email);
 		this.titulo = titulo;
-		this.turno = turno;
+		if(turno.equals("diurno") || turno.equals("vespertino") || turno.equals("noturno")) {
+			this.turno = turno;
+		}
+		else {
+			this.turno = "diurno";
+		}
 	}
 
-	@Override
-	public String toString() {
-		return "Oficinista [" + super.obtenerEstado() + "titulo = " + titulo + ", turno = " + turno + "]";
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		if(turno.equals("diurno") || turno.equals("vespertino") || turno.equals("noturno")) {
+			this.turno = turno;
+		}
+		else {
+			this.turno = "diurno";
+		}
 	}
 	
+	@Override
+	public String toString() {
+		return "Oficinista [" + super.obtenerEstado() + "\n" + " Titulo = " + titulo + ", Turno = " + turno + "]";
+	}
 }
