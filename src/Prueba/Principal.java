@@ -17,14 +17,14 @@ public class Principal {
 	}
 	
 	public static String pasoLetras(int letras) {
-		String numeroCadena = "";
-		for(int pos = 0 ; pos < letras ; pos++) {
-			Random aleatorio = new Random();
+		String caracter = "";
+		Random aleatorio = new Random();
+		caracter += (char) aleatorio.nextInt(65, 91);
+		for(int pos = 0 ; pos < letras - 1 ; pos++) {
 			int numero = aleatorio.nextInt(97, 123);
-			char caracter = (char) numero;
-			numeroCadena += caracter;
+			 caracter += (char) numero;
 		}
-		return numeroCadena;
+		return caracter;
 	}
 	
 	public static void main(String[] args) {
