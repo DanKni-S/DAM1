@@ -2,7 +2,7 @@ package Lista_personas;
 
 import java.util.Objects;
 
-public class Persona implements Comparable<Persona> {
+public class Persona {
 	
 	private String dni;
 	private String nombres;
@@ -61,5 +61,4 @@ public class Persona implements Comparable<Persona> {
 		Persona other = (Persona) obj;
 		return Objects.equals(dni, other.dni);
 	}
-	
 }
