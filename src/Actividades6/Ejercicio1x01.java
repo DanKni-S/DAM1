@@ -6,11 +6,11 @@ public class Ejercicio1x01 {
 	
 	public static void escribirMenu() {
 		System.out.println();
-		System.out.println("(0) Salir de programa ");
-		System.out.println("(1) Inserta un juego en el almacen ");
-		System.out.println("(2) Eliminar un juego del almacen ");
-		System.out.println("(3) Consultar un juego por su posicion ");
-		System.out.println("(4) Ver los juegos de almacen ");
+		System.out.println("(0)  ");
+		System.out.println("(1)  ");
+		System.out.println("(2)  ");
+		System.out.println("(3)  ");
+		System.out.println("(4)  ");
 		System.out.println();
 	}
 
@@ -50,10 +50,10 @@ public class Ejercicio1x01 {
 				posicion = Teclado.leerEntero("¿Posicion?" );
 				videojuego = almacen.consultar(posicion);
 				if(videojuego == null) {
-					System.err.println("No se ha encontrado ningun juego con el nombre indicado");
+					
 				}
-				else{
-					System.out.println(almacen.toString());
+				else {
+					
 				}
 				break;
 			case 4:
