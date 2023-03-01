@@ -5,17 +5,20 @@ import java.util.Objects;
 public class Libro {
 	private static int total = 0;
 	
-	private int ISBN;
+	private String isbn;
 	private String titulo;
 	private String escritor;
 	private int anyoPubli;
 	private int stock;
 	private double precio;
 	
-	public Libro(int iSBN, String titulo, String escritor, int anyoPubli, int stock, double precio) {
+	public Libro(String isbn) {
+		this.isbn = isbn;
+	}
+	
+	public Libro(String isbn, String titulo, String escritor, int anyoPubli, int stock, double precio) {
 		super();
-		total++;
-		this.ISBN = total;
+		this.isbn = isbn;
 		this.titulo = titulo;
 		this.escritor = escritor;
 		this.anyoPubli = anyoPubli;
@@ -23,23 +26,25 @@ public class Libro {
 		this.precio = precio;
 	}
 
+	public String getISBN() {
+		return isbn;
+	}
+
+	public void setISBN(String iSBN) {
+		isbn = isbn;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 	@Override
 	public String toString() {
-		return "Libro [ISBN = " + ISBN + ", Titulo = " + titulo + ", Escritor=" + escritor + ", Año de Publicación = " + anyoPubli
+		return "Libro [ISBN = " + isbn + ", Titulo = " + titulo + ", Escritor=" + escritor + ", Año de Publicación = " + anyoPubli
 				+ ", Stock = " + stock + ", Precio = " + String.format("%f.2", precio) + "]";
 	}
-//	@Override
-//	public int hasCode() {
-//		return Objects.hash(ISBN);
-//	}
-//	@Override
-//	public boolean equals(Objects obj) {
-//		if(this == obj);
-//		return true;
-//		if(obj instanceof Libro) {
-//			return false;
-//		}
-//		Libro other = (Libro) obj;
-//		return Objects.equals(ISBN, other.ISBN);
-//	}
 }

@@ -25,8 +25,8 @@ public class Principal {
 		
 		List<Libro> lista = new LinkedList<Libro>();
 		int opcion;
-		String titulo, escritor;
-		int ISBN, anyoPubli, stock;
+		String titulo, escritor, isbn;
+		int anyoPubli, stock;
 		double precio;
 		Libro libro;
 		
@@ -39,8 +39,8 @@ public class Principal {
 				break;
 			case 1:
 				// Crear nueva librería.
-				ISBN = Teclado.leerEntero("");
-				libro = new Libro(ISBN, "", "", 0, 0, 0);
+				isbn = Teclado.leerCadena("");
+				libro = new Libro(isbn, "", "", 0, 0, 0);
 				if(lista.contains(libro)) {
 					System.err.println("Ya existe el libro en la lista. ");
 				}
