@@ -30,23 +30,35 @@ public class Libreria {
 		}
 		return cadena;
 	}
+
 	public Libro consultar(String isbn) {
 		Libro libro = null;
 		Libro lirboBuscar = new Libro(isbn);
 		int posicion = listaLibros.indexOf(lirboBuscar);
-		if(posicion != 1) {
+		if (posicion != 1) {
 			libro = listaLibros.get(posicion);
 		}
 		return libro;
 	}
 	
+//	public Libro consultar2(String isbn) {
+//		for(Libro libro : listaLibros) {
+//			if(libro.getISBN().equals(isbn)) {
+//				return libro;
+//			}
+//		}
+//		return null;
+//	}
+
 	public boolean insertar(Libro libro) {
 		return listaLibros.add(libro);
 	}
+
 	public boolean eliminar(String isbn) {
-		Libro libroBuscar = new Libro (isbn);
+		Libro libroBuscar = new Libro(isbn);
 		return listaLibros.remove(libroBuscar);
 	}
+
 	public List<Libro> ordernarPorPrecio() {
 		List<Libro> listaLibroAux = new LinkedList<Libro>();
 		listaLibroAux.addAll(listaLibros);
@@ -54,11 +66,45 @@ public class Libreria {
 		return listaLibroAux;
 	}
 
-//	public Libro consulta2(String isbn) {
-//		for(Libro libro : listaLibros) {
-//			if(libro.getIsbn().equals(isbn)) {
-//				
-//			}
-//		}
-//	}
+	public List<Libro> consultarEscritor(String escritor) {
+		List<Libro> listaLibroAux = new LinkedList<Libro>();
+		for (Libro libro : listaLibros) {
+			if (libro.getEscritor().equalsIgnoreCase(escritor)) {
+				listaLibroAux.add(libro);
+			}
+		}
+		return listaLibroAux;
+	}
+
+	public List<Libro> consultarPrecioMax() {
+		double precioMax = 0.0;
+		for (Libro libro : listaLibros) {
+			if (libro.getPrecio() > precioMax) {
+				precioMax = libro.getPrecio();
+			}
+		}
+		List<Libro> listaLibroAux = new LinkedList<Libro>();
+		for (Libro libro : listaLibros) {
+			if (libro.getPrecio() == precioMax) {
+				listaLibroAux.add(libro);
+			}
+		}
+		return listaLibroAux;
+	}
+
+	public int venderPorIsbn(String isbn) {
+		Libro libro = this.consultar(isbn);
+		if (libro == null) {
+			return -1;
+		} else {
+			libro.decrementarStock();
+			if (libro.getStock() > 0) {
+				return 0; // Libro vendido y quedan unidades
+			} else {
+				this.eliminar(isbn);
+				return 1;
+			}
+		}
+	}
+
 }

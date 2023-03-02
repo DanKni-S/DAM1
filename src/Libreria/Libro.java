@@ -42,9 +42,31 @@ public class Libro {
 		this.precio = precio;
 	}
 
+	public String getEscritor() {
+		return escritor;
+	}
+
+	public void setEscritor(String escritor) {
+		this.escritor = escritor;
+	}
+
 	@Override
 	public String toString() {
 		return "Libro [ISBN = " + isbn + ", Titulo = " + titulo + ", Escritor=" + escritor + ", Año de Publicación = " + anyoPubli
 				+ ", Stock = " + stock + ", Precio = " + String.format("%f.2", precio) + "]";
+	}
+	
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public void decrementarStock() {
+		if(this.stock > 0) {
+			this.stock--;
+		}
 	}
 }
