@@ -1,9 +1,11 @@
 package Ejercicio_UsuariosWeb;
 
+import java.util.List;
+
 import entrada.Teclado;
 
 public class Principal {
-	
+
 	public static void escribirMenu() {
 		System.out.println();
 		System.out.println("(1) Insertar un administrador en la colección. ");
@@ -24,17 +26,50 @@ public class Principal {
 		System.out.println("(16) Quitar un producto de la lista de favoritos de un comprador, por correo, de la colección. ");
 		System.out.println();
 	}
+	public static void escribirLista(List<Usuarios> lista) {
+		if(lista.isEmpty()) {
+			System.out.println("");
+		}
+		else {
+			for(Usuarios usu : lista) {
+				System.out.println(usu.toString());
+			}
+		}
+	}
 
 	public static void main(String[] args) {
+		Coleccion coleccion = new Coleccion(); // Fundamental
 		int opcion;
-		
+		String nombre, correo, passwd, categoria, tarjeta;
+		boolean revisaComentario;
+		Usuarios usuario;
+		List<Usuarios> listaAux;
+
 		do {
 			opcion = Teclado.leerEntero("");
 			escribirMenu();
-			switch(opcion) {
+			switch (opcion) {
 			case 0:
+				// Salir de Programa
 				break;
 			case 1:
+				// Insertar un administrador en la colección.
+				correo = Teclado.leerCadena("Correo? ");
+				usuario = coleccion.consultarPorCorreo(correo);
+				if (usuario == null) {
+					nombre = Teclado.leerCadena("");
+					passwd = Teclado.leerCadena("");
+					categoria = Teclado.leerCadena("");
+					revisaComentario = Teclado.leerBooleano("");
+					new Administrador(nombre, correo, passwd, categoria, revisaComentario);
+					if (coleccion.insertar(usuario)) {
+						System.out.println("Administrador insertado. ");
+					} else {
+						System.err.println("Error al insertar un administrador. ");
+					}
+				} else {
+					System.err.println("Usuario ecnontrado con correo igual");
+				}
 				break;
 			case 2:
 				break;
@@ -47,6 +82,9 @@ public class Principal {
 			case 6:
 				break;
 			case 7:
+				// Consultar todos los usuarios de la colección, ordenados por nombre ascendente.
+				listaAux = coleccion.ordenarPorNombreAsc();
+				escribirLista(listaAux);
 				break;
 			case 8:
 				break;
@@ -67,7 +105,7 @@ public class Principal {
 			case 16:
 				break;
 			}
-		}while(opcion != 0);
+		} while (opcion != 0);
 	}
 
 }
