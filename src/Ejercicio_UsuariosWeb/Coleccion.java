@@ -112,4 +112,40 @@ public class Coleccion {
             } 
         }return listAux;
     }
+	public List<Usuarios> consultarCiudad(String ciudad) {
+		List<Usuarios> listAux = new LinkedList<Usuarios>();
+		for(Usuarios usuario : listaUsuarios) {
+			if(usuario instanceof Comprador) {
+				Comprador comprador = (Comprador) usuario;
+				if(comprador.getDireccion().contains(ciudad)) {
+					listAux.add(usuario);
+				}
+			}
+		}
+		return listAux;
+	}
+	
+	public List<Usuarios> consultarTamanoListaP() {
+		int tamanoMaximo = 0;
+		for(Usuarios usuario : listaUsuarios) {
+			if(usuario instanceof Comprador) {
+				Comprador comprador = (Comprador) usuario;
+				int tamanoLista = comprador.obtenerTamanoLista();
+				if(tamanoLista > tamanoMaximo) {
+					tamanoMaximo = tamanoLista;
+				}
+			}
+		}
+		List<Usuarios> listAux = new LinkedList<Usuarios>();
+		for(Usuarios usuario : listaUsuarios) {
+			if(usuario instanceof Comprador) {
+				Comprador comprador = (Comprador) usuario;
+				int tamanoLista = comprador.obtenerTamanoLista();
+				if(tamanoLista == tamanoMaximo) {
+					listAux.add(usuario);
+				}
+			}
+		}
+		return listAux;
+	}
 }

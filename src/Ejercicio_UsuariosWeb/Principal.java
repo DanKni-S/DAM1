@@ -45,9 +45,10 @@ public class Principal {
 	public static void main(String[] args) {
 		Coleccion coleccion = new Coleccion(); // Fundamental
 		int opcion;
-		String nombre, correo, passwd = null, categoria, tarjeta, direccion;
+		String nombre, correo, passwd = null, categoria, tarjeta, direccion, ciudad, producto;
 		boolean revisaComentario;
 		Usuarios usuario;
+		Comprador comprador;
 		List<Usuarios> listaAux;
 
 		do {
@@ -158,7 +159,7 @@ public class Principal {
 					System.err.println("No hay usuarios en la lista. ");
 				} else {
 					listaAux = coleccion.consultarContraseniaDebil();
-					escribirLista(listaAux);	
+					escribirLista(listaAux);
 				}
 				break;
 			case 9:
@@ -171,8 +172,25 @@ public class Principal {
 				}
 				break;
 			case 10:
+				// Consultar los compradores que incluyan una ciudad en la dirección de envío,
+				// de la colección.
+				ciudad = Teclado.leerCadena("Ciudad? ");
+				listaAux = coleccion.consultarCiudad(ciudad);
+				if (listaAux.isEmpty()) {
+					System.out.println("No hay compradores con esa ciudad. ");
+				} else {
+					escribirLista(listaAux);
+				}
 				break;
 			case 11:
+				// Consultar los compradores con la lista de productos favoritos más larga de la
+				// colección.
+				listaAux = coleccion.consultarTamanoListaP();
+				if (listaAux.isEmpty()) {
+					System.out.println("no hay compradores. ");
+				} else {
+					escribirLista(listaAux);
+				}
 				break;
 			case 12:
 				// Consultar los administradores de la colección.
@@ -188,6 +206,23 @@ public class Principal {
 			case 14:
 				break;
 			case 15:
+				// Añadir un producto a la lista de favoritos de un comprador, por correo, de la
+				// colección.
+				correo = Teclado.leerCadena("Correo? ");
+				usuario = coleccion.consultarPorCorreo(correo);
+				if (usuario == null) {
+					System.out.println("No existe el usuario. ");
+				} else if (usuario instanceof Comprador) {
+					producto = Teclado.leerCadena("Nombre de producto? ");
+					comprador = (Comprador) usuario;
+					if (comprador.insertar(producto)) {
+						System.out.println("Producto añadido a la lista del comprador. ");
+					} else {
+						System.out.println("Error al añadir a la lista. ");
+					}
+				} else {
+					System.out.println("El usuario no es un comprador. ");
+				}
 				break;
 			case 16:
 				break;
