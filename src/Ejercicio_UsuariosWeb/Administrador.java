@@ -4,7 +4,8 @@ public class Administrador extends Usuarios {
 	private String categoria;
 	private boolean revisaComentarios;
 	
-	public Administrador(String nombre, String correo, String passw, String categoria, boolean revisarComentarios) {
+	public Administrador(String nombre, String correo, String passw, 
+			String categoria, boolean revisaComentarios) {
 		super(nombre, correo, passw);
 		this.categoria = categoria;
 		this.revisaComentarios = revisaComentarios;
