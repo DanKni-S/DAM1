@@ -36,6 +36,10 @@ public abstract class Usuarios {
 		this.passw = passw;
 	}
 
+	public String getPassw() {
+		return passw;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(correo);

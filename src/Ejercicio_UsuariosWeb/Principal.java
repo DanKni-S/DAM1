@@ -31,6 +31,7 @@ public class Principal {
 				"(16) Quitar un producto de la lista de favoritos de un comprador, por correo, de la colección. ");
 		System.out.println();
 	}
+
 	public static void escribirLista(List<Usuarios> lista) {
 		if (lista.isEmpty()) {
 			System.out.println("");
@@ -40,10 +41,11 @@ public class Principal {
 			}
 		}
 	}
+
 	public static void main(String[] args) {
 		Coleccion coleccion = new Coleccion(); // Fundamental
 		int opcion;
-		String nombre, correo, passwd, categoria, tarjeta, direccion;
+		String nombre, correo, passwd = null, categoria, tarjeta, direccion;
 		boolean revisaComentario;
 		Usuarios usuario;
 		List<Usuarios> listaAux;
@@ -59,7 +61,7 @@ public class Principal {
 				// Insertar un administrador en la colección.
 				correo = Teclado.leerCadena("Correo? ");
 				usuario = coleccion.consultarPorCorreo(correo);
-				
+
 				if (usuario == null) {
 					nombre = Teclado.leerCadena("Nombre? ");
 					passwd = Teclado.leerCadena("Contraseña? ");
@@ -104,25 +106,26 @@ public class Principal {
 				break;
 			case 4:
 				// Consultar un usuario, por correo, de la colección.
-				if(coleccion == null) {
+				if (coleccion == null) {
 					System.out.println("No hay usuarios en la lista. ");
-				}else {
+				} else {
 					correo = Teclado.leerCadena("Correo? ");
 					usuario = coleccion.consultarPorCorreo(correo);
-					if(usuario == null) {
+					if (usuario == null) {
 						System.out.println("No se ha encontrado ningun usuario con el correo indicado. ");
-					}else {
+					} else {
 						System.out.println(usuario.toString());
 					}
 				}
 				break;
 			case 5:
-				// Actualizar el nombre y la contraseña de un usurio, por correo, de la colección.
+				// Actualizar el nombre y la contraseña de un usurio, por correo, de la
+				// colección.
 				correo = Teclado.leerCadena("Correo? ");
 				usuario = coleccion.consultarPorCorreo(correo);
-				if(usuario == null) {
+				if (usuario == null) {
 					System.out.println("No se ha encontrado ningun usuario con el correo indicado. ");
-				}else {
+				} else {
 					nombre = Teclado.leerCadena("Nombre? ");
 					passwd = Teclado.leerCadena("Contraseña? ");
 					coleccion.cambiarNC(nombre, passwd, usuario);
@@ -134,9 +137,9 @@ public class Principal {
 				// Eliminar un usuario, por correo, de la colección.
 				correo = Teclado.leerCadena("Correo? ");
 				usuario = coleccion.consultarPorCorreo(correo);
-				if(usuario == null) {
+				if (usuario == null) {
 					System.out.println("No se ha encontrado ningun usuario con el correo indicado. ");
-				}else {
+				} else {
 					System.out.println(coleccion.eliminar(usuario));
 					System.out.println("Se ha eliminado el usuario. ");
 					System.out.println(usuario.toString());
@@ -149,15 +152,22 @@ public class Principal {
 				escribirLista(listaAux);
 				break;
 			case 8:
-				// Consultar los usuarios que tengan una contraseña débil (6 o menos caracteres), de la colección.
-				
+				// Consultar los usuarios que tengan una contraseña débil (6 o menos
+				// caracteres), de la colección.
+				if (coleccion == null) {
+					System.err.println("No hay usuarios en la lista. ");
+				} else {
+					listaAux = coleccion.consultarContraseniaDebil();
+					escribirLista(listaAux);	
+				}
 				break;
 			case 9:
 				// Consultar los compradores de la colección.
 				if (coleccion == null) {
 					System.err.println("No hay usuarios en la lista. ");
 				} else {
-					
+					listaAux = coleccion.consultarComprador();
+					escribirLista(listaAux);
 				}
 				break;
 			case 10:
@@ -165,6 +175,13 @@ public class Principal {
 			case 11:
 				break;
 			case 12:
+				// Consultar los administradores de la colección.
+				if (coleccion == null) {
+					System.err.println("No hay usuarios en la lista. ");
+				} else {
+					listaAux = coleccion.consultarAdmin();
+					escribirLista(listaAux);
+				}
 				break;
 			case 13:
 				break;

@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import Libreria.Libro;
+
 public class Coleccion {
 	
 	private List<Usuarios> listaUsuarios;
@@ -67,6 +69,47 @@ public class Coleccion {
 		}
 		return false;
 	}
+	public List<Usuarios> consultarContraseniaDebil(){
+        List<Usuarios> listAux  = new LinkedList<Usuarios>();
+        if (listaUsuarios.isEmpty()) {
+            System.out.println("La lista esta vacia ");
+        }
+        else { 
+            for(Usuarios usuario : listaUsuarios) {
+                if(usuario.getPassw().length() <= 8) {
+                    listAux.add(usuario);
+                }
+            } 
+        }return listAux;
+    }
 	
+	// Consultar los compradores
+	public List<Usuarios> consultarComprador(){
+        List<Usuarios> listAux  = new LinkedList<Usuarios>();
+        if (listaUsuarios.isEmpty()) {
+            System.out.println("La lista esta vacia ");
+        }
+        else { 
+            for(Usuarios usuario : listaUsuarios) {
+                if(usuario instanceof Comprador comprador) {
+                    listAux.add(usuario);
+                }
+            } 
+        }return listAux;
+    }
 	
+	// Consultar los Administradores
+	public List<Usuarios> consultarAdmin(){
+        List<Usuarios> listAux  = new LinkedList<Usuarios>();
+        if (listaUsuarios.isEmpty()) {
+            System.out.println("La lista esta vacia ");
+        }
+        else { 
+            for(Usuarios usuario : listaUsuarios) {
+                if(usuario instanceof Administrador admin) {
+                    listAux.add(usuario);
+                }
+            } 
+        }return listAux;
+    }
 }
