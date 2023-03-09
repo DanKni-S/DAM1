@@ -33,7 +33,17 @@ public class Comprador extends Usuarios {
 			return listaProducto.add(producto);
 		}
 	}
+
+	// En la clase correspondiente, porque es el que gestiona la lista
 	public int obtenerTamanoLista() {
 		return listaProducto.size();
+	}
+
+	public boolean eliminarProductoLista(String producto) {
+		if (listaProducto.remove(producto)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

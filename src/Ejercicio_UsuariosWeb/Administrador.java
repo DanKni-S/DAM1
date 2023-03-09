@@ -16,5 +16,13 @@ public class Administrador extends Usuarios {
 		return "Administrador [Nombre = " + nombre + ", Correo=" + correo + ", Password = " + passw + ", Categoria = "
 				+ categoria + ", Revisar Comentarios = " + revisaComentarios + "]";
 	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public boolean isRevisaComentarios() {
+		return revisaComentarios;
+	}
 	
 }

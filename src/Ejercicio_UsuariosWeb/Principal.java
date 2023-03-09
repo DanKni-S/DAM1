@@ -202,8 +202,23 @@ public class Principal {
 				}
 				break;
 			case 13:
+				// Consultar los administradores de una categoría, de la colección
+				if(coleccion == null) {
+					System.out.println("No existe el usuario con ese correo. ");
+				}else {
+					categoria = Teclado.leerCadena("Categoria? ");
+					listaAux = coleccion.consultarAdministradoresCategoria(categoria);
+					escribirLista(listaAux);
+				}
 				break;
 			case 14:
+				// Consultar los administradores que no revisan comentarios, de la colección.
+				if(coleccion == null) {
+					System.out.println("No existe el usuario con ese correo. ");
+				}else {
+					listaAux = coleccion.administradoresRevisan();
+					escribirLista(listaAux);
+				}
 				break;
 			case 15:
 				// Añadir un producto a la lista de favoritos de un comprador, por correo, de la
@@ -225,6 +240,22 @@ public class Principal {
 				}
 				break;
 			case 16:
+				// Quitar un producto de la lista de favoritos de un comprador, por correo, de la colección.
+				correo = Teclado.leerCadena("Correo? ");
+				usuario = coleccion.consultarPorCorreo(correo);
+				if(usuario == null) {
+					System.out.println("No existe el usuario. ");
+				}else if(usuario instanceof Comprador) {
+					producto = Teclado.leerCadena("Producto? ");
+					comprador = (Comprador) usuario;
+					if(comprador.eliminarProductoLista(producto)) {
+						System.out.println("Producto eliminado de la lista del comprador. ");
+					}else {
+						System.out.println("No existe el producto en la lista. ");
+					}
+				}else {
+					System.out.println("El usuario no es un comprador. ");
+				}
 				break;
 			}
 		} while (opcion != 0);
