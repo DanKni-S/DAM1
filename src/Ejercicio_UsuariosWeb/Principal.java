@@ -78,6 +78,7 @@ public class Principal {
 					System.err.println("Usuario ecnontrado con correo identico. ");
 				}
 				break;
+				
 			case 2:
 				// Insertar un comprador en la colección.
 				correo = Teclado.leerCadena("Correo? ");
@@ -97,6 +98,7 @@ public class Principal {
 					System.out.println("Usuario encontradoc con correo identico. ");
 				}
 				break;
+				
 			case 3:
 				// Consultar todos los usuarios de la colección.
 				if (coleccion == null) {
@@ -105,6 +107,7 @@ public class Principal {
 					System.out.println(coleccion.toString());
 				}
 				break;
+				
 			case 4:
 				// Consultar un usuario, por correo, de la colección.
 				if (coleccion == null) {
@@ -119,6 +122,7 @@ public class Principal {
 					}
 				}
 				break;
+				
 			case 5:
 				// Actualizar el nombre y la contraseña de un usurio, por correo, de la
 				// colección.
@@ -134,6 +138,7 @@ public class Principal {
 					System.out.println(usuario.toString());
 				}
 				break;
+				
 			case 6:
 				// Eliminar un usuario, por correo, de la colección.
 				correo = Teclado.leerCadena("Correo? ");
@@ -146,12 +151,14 @@ public class Principal {
 					System.out.println(usuario.toString());
 				}
 				break;
+				
 			case 7:
 				// Consultar todos los usuarios de la colección, ordenados por nombre
 				// ascendente.
 				listaAux = coleccion.ordenarPorNombreAsc();
 				escribirLista(listaAux);
 				break;
+				
 			case 8:
 				// Consultar los usuarios que tengan una contraseña débil (6 o menos
 				// caracteres), de la colección.
@@ -162,6 +169,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 9:
 				// Consultar los compradores de la colección.
 				if (coleccion == null) {
@@ -171,6 +179,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 10:
 				// Consultar los compradores que incluyan una ciudad en la dirección de envío,
 				// de la colección.
@@ -182,6 +191,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 11:
 				// Consultar los compradores con la lista de productos favoritos más larga de la
 				// colección.
@@ -192,6 +202,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 12:
 				// Consultar los administradores de la colección.
 				if (coleccion == null) {
@@ -201,6 +212,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 13:
 				// Consultar los administradores de una categoría, de la colección
 				if(coleccion == null) {
@@ -211,6 +223,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 14:
 				// Consultar los administradores que no revisan comentarios, de la colección.
 				if(coleccion == null) {
@@ -220,6 +233,7 @@ public class Principal {
 					escribirLista(listaAux);
 				}
 				break;
+				
 			case 15:
 				// Añadir un producto a la lista de favoritos de un comprador, por correo, de la
 				// colección.
@@ -239,6 +253,7 @@ public class Principal {
 					System.out.println("El usuario no es un comprador. ");
 				}
 				break;
+				
 			case 16:
 				// Quitar un producto de la lista de favoritos de un comprador, por correo, de la colección.
 				correo = Teclado.leerCadena("Correo? ");

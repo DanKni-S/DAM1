@@ -154,7 +154,8 @@ public class Coleccion {
 		}
 		return listAux;
 	}
-	// Consultar los Administradores de una categoria
+	
+	// 13 -  Consultar los Administradores de una categoria
 	public List<Usuarios> consultarAdministradoresCategoria(String categoria){
         List<Usuarios> listAux  = new LinkedList<Usuarios>();
         if (listaUsuarios.isEmpty()) {
@@ -170,7 +171,8 @@ public class Coleccion {
         }
         return listAux;
     }
-	// Para saber si los Administradores revisan comentarios
+	
+	// 14 - Para saber si los Administradores revisan comentarios
 	public List<Usuarios> administradoresRevisan(){
         List<Usuarios> listAux  = new LinkedList<Usuarios>();
         if (listaUsuarios.isEmpty()) {
