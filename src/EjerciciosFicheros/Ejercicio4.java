@@ -9,8 +9,7 @@ import java.util.Set;
 import entrada.Teclado;
 
 public class Ejercicio4 {
-	public static Set<String> leerLineasNoRepetidas(String nombreFichero){
-		throws IOException {
+	public static Set<String> leerLineasNoRepetidas(String nombreFichero) throws IOException {
 		BufferedReader flujoLectura = null;
 		try {
 			flujoLectura = new BufferedReader(new FileReader(nombreFichero));
