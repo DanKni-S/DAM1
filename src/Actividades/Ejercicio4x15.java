@@ -7,8 +7,8 @@ public class Ejercicio4x15 {
 		final int TOTALALUMNOS = 10;
 		int contadorAlumnos = 0;
 		int contadorNotaFinal = 0;
-		double notaTeoria = 0, notaProblemas = 0, notaPracticas = 0;
-		double sumaNotaFinal = 0.0, notaFinal;
+		double notaTeoria, notaProblemas, notaPracticas;
+		double sumaNotaFinal = 0, notaFinal = 0;
 		boolean notasValidas;
 		Scanner teclado = new Scanner(System.in);
 		while (contadorAlumnos < TOTALALUMNOS) {
@@ -20,7 +20,7 @@ public class Ejercicio4x15 {
 			System.out.println("¿Nota de Prácticas? ");
 			notaPracticas = teclado.nextDouble();
 			
-			notasValidas = false;
+			notasValidas = true;
 			if (notaTeoria < 0 || notaTeoria > 10) {
 				System.out.println("La nota de Teoría debe estar comprendida " + " entre 0 y 10.");
 				notasValidas = false;
@@ -38,11 +38,10 @@ public class Ejercicio4x15 {
 				System.out.printf("Nota de Problemas:    %5.2f\n", notaProblemas);
 				System.out.printf("Nota de Prácticas:   %5.2f\n", notaPracticas);
 				notaFinal = notaTeoria + 0.3 + notaProblemas + 0.2 + notaPracticas + 0.5;
-				
 				System.out.printf("Nota Final:    %5.2f\n", notaFinal);
 			}
 			System.out.println();
-			contadorAlumnos += 1;
+			contadorAlumnos++;
 		}
 		System.out.println("Resumen");
 		if (contadorNotaFinal == 0) {
